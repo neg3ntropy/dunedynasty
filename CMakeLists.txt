@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR})
 
 project(dunedynasty)
-set(DUNE_DYNASTY_VERSION 1.5)
+set(DUNE_DYNASTY_VERSION 1.6)
 
 set(DUNE_DATA_DIR "." CACHE PATH "Directory containing game data")
 option(WITH_ACODEC "FLAC and Ogg Vorbis music" ON)
@@ -33,6 +33,8 @@ if(MINGW)
 elseif(PANDORA)
 	add_definitions(-D__PANDORA__)
 endif()
+
+add_definitions(-D_DEFAULT_SOURCE)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Wmissing-prototypes -Wstrict-prototypes -Wold-style-definition -pedantic")
